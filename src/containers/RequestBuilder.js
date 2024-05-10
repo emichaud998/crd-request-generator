@@ -131,12 +131,13 @@ export default class RequestBuilder extends Component {
         console.log(jwt);
         var myHeaders = new Headers({
             "Content-Type": "application/json",
-            "authorization": jwt
+            "Authorization": jwt
         });
         this.consoleLog("Fetching response from " + cdsUrl, types.info);
         try {
             fetch(cdsUrl, {
                 method: "POST",
+                mode: "cors",
                 headers: myHeaders,
                 body: JSON.stringify(json_request)
             }).then(response => {

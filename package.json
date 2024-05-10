@@ -26,7 +26,7 @@
     "terra-text": "^2.18.0"
   },
   "scripts": {
-    "start": "concurrently --kill-others \"json-server --watch src/db.json -p 3001 --host 0.0.0.0\" \"react-scripts start\"",
+    "start": "concurrently --kill-others \"json-server --watch src/db.json -p 3001 --host 0.0.0.0\" \"react-scripts --openssl-legacy-provider start\"",
     "production": "json-server --watch src/db.json -p 3000 --host 0.0.0.0 --static build",
     "startx": "react-scripts start",
     "build": "react-scripts build",

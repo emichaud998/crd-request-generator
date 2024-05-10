@@ -73,10 +73,16 @@ function setupKeys(callback) {
       kid: kid
   }
 
+  jwkPub2.kid = kid
+  jwkPub2.alg = "RS256"
+  jwkPub2.e = "AQAB"
+  jwkPub2.use = "sig"
+  jwkPub2.ext = true
+  jwkPub2.key_ops = ["verify"]
+
   const pubPem = {
-    "pem": jwkPub2,
-    "id": kid
-  };
+    keys: [jwkPub2]
+  }
 
   fetch(`${(process.env.REACT_APP_PUBLIC_KEYS ? process.env.REACT_APP_PUBLIC_KEYS : config.public_keys)}/`, {
     "body": JSON.stringify(pubPem),
